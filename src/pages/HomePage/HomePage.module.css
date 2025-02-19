@@ -1,0 +1,607 @@
+body {
+  margin: 0 0 0 0;
+  background-color: black;
+}
+
+* {
+  overflow: hidden;
+}
+
+.square {
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  width: 100vw;
+  height: 100vh;
+  animation: fadeIn 1.5s ease forwards;
+  
+}
+
+.back {
+  position: fixed;
+  top: -130%;
+  left: 20%;
+  width: 200%;
+  height: 220%;
+  transform: rotate(-45deg);
+}
+
+
+:root {
+  --primary-color: #ffffff; /* Белый цвет */
+}
+
+.star {
+  --star-color: var(--primary-color);
+  --star-tail-length: 6em;
+  --star-tail-height: 2px;
+  --star-width: calc(var(--star-tail-length) / 6);
+  --fall-duration: 9s;
+  --tail-fade-duration: var(--fall-duration);
+  position: absolute;
+  top: var(--top-offset);
+  left: 0;
+  width: var(--star-tail-length);
+  height: var(--star-tail-height);
+  color: var(--primary-color);
+  background: linear-gradient(45deg, currentColor, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px currentColor);
+  transform: translate3d(104em, 0, 0);
+  animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
+@media screen and (max-width: 750px) {
+  .star {
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+  }
+}
+.star:nth-child(1) {
+  --star-tail-length: 7.28em;
+  --top-offset: 59.29vh;
+  --fall-duration: 7.201s;
+  --fall-delay: 1.64s;
+}
+.star:nth-child(2) {
+  --star-tail-length: 6.73em;
+  --top-offset: 70.8vh;
+  --fall-duration: 6.126s;
+  --fall-delay: 2.985s;
+}
+.star:nth-child(3) {
+  --star-tail-length: 6em;
+  --top-offset: 78.48vh;
+  --fall-duration: 7.66s;
+  --fall-delay: 7.145s;
+}
+.star:nth-child(4) {
+  --star-tail-length: 5.83em;
+  --top-offset: 81.82vh;
+  --fall-duration: 7.473s;
+  --fall-delay: 0.733s;
+}
+.star:nth-child(5) {
+  --star-tail-length: 7.48em;
+  --top-offset: 46.5vh;
+  --fall-duration: 9.932s;
+  --fall-delay: 7.239s;
+}
+.star:nth-child(6) {
+  --star-tail-length: 5.17em;
+  --top-offset: 67.64vh;
+  --fall-duration: 11.595s;
+  --fall-delay: 5.621s;
+}
+.star:nth-child(7) {
+  --star-tail-length: 5.62em;
+  --top-offset: 84.54vh;
+  --fall-duration: 6.642s;
+  --fall-delay: 5.823s;
+}
+.star:nth-child(8) {
+  --star-tail-length: 5.57em;
+  --top-offset: 98.23vh;
+  --fall-duration: 8.24s;
+  --fall-delay: 8.255s;
+}
+.star:nth-child(9) {
+  --star-tail-length: 7.18em;
+  --top-offset: 40.58vh;
+  --fall-duration: 8.376s;
+  --fall-delay: 5.476s;
+}
+.star:nth-child(10) {
+  --star-tail-length: 5.13em;
+  --top-offset: 40.88vh;
+  --fall-duration: 10.882s;
+  --fall-delay: 6.475s;
+}
+.star:nth-child(11) {
+  --star-tail-length: 5em;
+  --top-offset: 89.87vh;
+  --fall-duration: 10.643s;
+  --fall-delay: 0.686s;
+}
+.star:nth-child(12) {
+  --star-tail-length: 5.26em;
+  --top-offset: 75.25vh;
+  --fall-duration: 11.939s;
+  --fall-delay: 2.846s;
+}
+.star:nth-child(13) {
+  --star-tail-length: 6.41em;
+  --top-offset: 79.91vh;
+  --fall-duration: 8.819s;
+  --fall-delay: 4.23s;
+}
+.star:nth-child(14) {
+  --star-tail-length: 5.21em;
+  --top-offset: 35.34vh;
+  --fall-duration: 8.671s;
+  --fall-delay: 0.079s;
+}
+.star:nth-child(15) {
+  --star-tail-length: 6.91em;
+  --top-offset: 22.59vh;
+  --fall-duration: 9.626s;
+  --fall-delay: 5.59s;
+}
+.star:nth-child(16) {
+  --star-tail-length: 6.51em;
+  --top-offset: 90.96vh;
+  --fall-duration: 6.01s;
+  --fall-delay: 1.466s;
+}
+.star:nth-child(17) {
+  --star-tail-length: 5.4em;
+  --top-offset: 94.83vh;
+  --fall-duration: 11.783s;
+  --fall-delay: 1.954s;
+}
+.star:nth-child(18) {
+  --star-tail-length: 6.16em;
+  --top-offset: 14.67vh;
+  --fall-duration: 6.142s;
+  --fall-delay: 9.319s;
+}
+.star:nth-child(19) {
+  --star-tail-length: 7.23em;
+  --top-offset: 16.28vh;
+  --fall-duration: 7.272s;
+  --fall-delay: 4.347s;
+}
+.star:nth-child(20) {
+  --star-tail-length: 5.82em;
+  --top-offset: 42.72vh;
+  --fall-duration: 6.85s;
+  --fall-delay: 2.967s;
+}
+.star:nth-child(21) {
+  --star-tail-length: 7.03em;
+  --top-offset: 94.97vh;
+  --fall-duration: 9.909s;
+  --fall-delay: 8.314s;
+}
+.star:nth-child(22) {
+  --star-tail-length: 5.37em;
+  --top-offset: 32.74vh;
+  --fall-duration: 6.833s;
+  --fall-delay: 5.621s;
+}
+.star:nth-child(23) {
+  --star-tail-length: 7.04em;
+  --top-offset: 32.19vh;
+  --fall-duration: 10.349s;
+  --fall-delay: 7.03s;
+}
+.star:nth-child(24) {
+  --star-tail-length: 7.15em;
+  --top-offset: 46.1vh;
+  --fall-duration: 7.032s;
+  --fall-delay: 1.449s;
+}
+.star:nth-child(25) {
+  --star-tail-length: 5.66em;
+  --top-offset: 30.38vh;
+  --fall-duration: 9.85s;
+  --fall-delay: 2.617s;
+}
+.star:nth-child(26) {
+  --star-tail-length: 6.34em;
+  --top-offset: 77.47vh;
+  --fall-duration: 11.543s;
+  --fall-delay: 6.76s;
+}
+.star:nth-child(27) {
+  --star-tail-length: 7.14em;
+  --top-offset: 32.83vh;
+  --fall-duration: 10.849s;
+  --fall-delay: 5.488s;
+}
+.star:nth-child(28) {
+  --star-tail-length: 5.08em;
+  --top-offset: 76.78vh;
+  --fall-duration: 11.258s;
+  --fall-delay: 2.182s;
+}
+.star:nth-child(29) {
+  --star-tail-length: 5.7em;
+  --top-offset: 32.21vh;
+  --fall-duration: 6.287s;
+  --fall-delay: 6.352s;
+}
+.star:nth-child(30) {
+  --star-tail-length: 6.2em;
+  --top-offset: 78.37vh;
+  --fall-duration: 11.249s;
+  --fall-delay: 3.445s;
+}
+.star:nth-child(31) {
+  --star-tail-length: 5.2em;
+  --top-offset: 94.85vh;
+  --fall-duration: 7.89s;
+  --fall-delay: 3.743s;
+}
+.star:nth-child(32) {
+  --star-tail-length: 6.94em;
+  --top-offset: 29.36vh;
+  --fall-duration: 6.969s;
+  --fall-delay: 0.249s;
+}
+.star:nth-child(33) {
+  --star-tail-length: 7.29em;
+  --top-offset: 95.71vh;
+  --fall-duration: 9.279s;
+  --fall-delay: 5.754s;
+}
+.star:nth-child(34) {
+  --star-tail-length: 5.17em;
+  --top-offset: 77.91vh;
+  --fall-duration: 8.625s;
+  --fall-delay: 8.766s;
+}
+.star:nth-child(35) {
+  --star-tail-length: 6.88em;
+  --top-offset: 16.28vh;
+  --fall-duration: 9.574s;
+  --fall-delay: 9.715s;
+}
+.star:nth-child(36) {
+  --star-tail-length: 7.16em;
+  --top-offset: 97.23vh;
+  --fall-duration: 9.765s;
+  --fall-delay: 8.58s;
+}
+.star:nth-child(37) {
+  --star-tail-length: 6.19em;
+  --top-offset: 76.75vh;
+  --fall-duration: 6.554s;
+  --fall-delay: 5.336s;
+}
+.star:nth-child(38) {
+  --star-tail-length: 7.47em;
+  --top-offset: 62.56vh;
+  --fall-duration: 8.104s;
+  --fall-delay: 6.873s;
+}
+.star:nth-child(39) {
+  --star-tail-length: 7.11em;
+  --top-offset: 64.71vh;
+  --fall-duration: 7.841s;
+  --fall-delay: 5.469s;
+}
+.star:nth-child(40) {
+  --star-tail-length: 7.43em;
+  --top-offset: 17.7vh;
+  --fall-duration: 6.394s;
+  --fall-delay: 0.689s;
+}
+.star:nth-child(41) {
+  --star-tail-length: 5.91em;
+  --top-offset: 90.64vh;
+  --fall-duration: 9.695s;
+  --fall-delay: 1.14s;
+}
+.star:nth-child(42) {
+  --star-tail-length: 6.66em;
+  --top-offset: 55.36vh;
+  --fall-duration: 9.668s;
+  --fall-delay: 0.103s;
+}
+.star:nth-child(43) {
+  --star-tail-length: 7.38em;
+  --top-offset: 60.35vh;
+  --fall-duration: 7.955s;
+  --fall-delay: 0.481s;
+}
+.star:nth-child(44) {
+  --star-tail-length: 7.46em;
+  --top-offset: 3.18vh;
+  --fall-duration: 11.821s;
+  --fall-delay: 0.698s;
+}
+.star:nth-child(45) {
+  --star-tail-length: 5.66em;
+  --top-offset: 10.51vh;
+  --fall-duration: 9.171s;
+  --fall-delay: 4.894s;
+}
+.star:nth-child(46) {
+  --star-tail-length: 5.46em;
+  --top-offset: 76.83vh;
+  --fall-duration: 9.635s;
+  --fall-delay: 6.382s;
+}
+.star:nth-child(47) {
+  --star-tail-length: 5.62em;
+  --top-offset: 83.77vh;
+  --fall-duration: 7.645s;
+  --fall-delay: 1.009s;
+}
+.star:nth-child(48) {
+  --star-tail-length: 6.94em;
+  --top-offset: 65.17vh;
+  --fall-duration: 7.404s;
+  --fall-delay: 4.787s;
+}
+.star:nth-child(49) {
+  --star-tail-length: 5.16em;
+  --top-offset: 74vh;
+  --fall-duration: 11.731s;
+  --fall-delay: 2.071s;
+}
+.star:nth-child(50) {
+  --star-tail-length: 5.71em;
+  --top-offset: 59.06vh;
+  --fall-duration: 9.521s;
+  --fall-delay: 1.581s;
+}
+.star::before, .star::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--star-width) / -2);
+  width: var(--star-width);
+  height: 100%;
+  background: linear-gradient(45deg, transparent, currentColor, transparent);
+  border-radius: inherit;
+  animation: blink 2s linear infinite;
+}
+.star::before {
+  transform: rotate(45deg);
+}
+.star::after {
+  transform: rotate(-45deg);
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(-30em, 0, 0);
+  }
+}
+@keyframes tail-fade {
+  0%, 50% {
+    width: var(--star-tail-length);
+    opacity: 1;
+  }
+  70%, 80% {
+    width: 0;
+    opacity: 0.4;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.Heading {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  gap: 10px;
+  padding: 25px;
+}
+
+.list:hover {
+  transform: scale(1.05); /* Увеличиваем кнопку при наведении */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+}
+
+
+.All {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  margin-top: -83px;
+}
+
+.fotobox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 25%;
+  margin-right: -10%;
+  border-radius: 60px;
+  z-index: 2;
+  position: relative;
+}
+
+.Inbox {
+  display: flex;
+  color: white;
+  height: 75%;
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 10vh;
+}
+
+
+
+.orb {
+  display: flex;
+  font-size: 55px;
+  font-family: "Dela Gothic One", sans-serif;
+  color: white;
+}
+
+.ysp {
+  display: flex;
+  font-size: 100px;
+  font-family: "Dela Gothic One", sans-serif;
+  color: white;
+  margin-top: -40px;
+}
+
+.n {
+  display: flex;
+  font-size: 23px;
+  font-family: "Dela Gothic One", sans-serif;
+  color: white;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+hr { 
+  display: flex;
+  width: 2px; 
+  height: 110px; 
+  background-color: white;
+  margin-left: 0%;
+}
+
+.Inbox2 {
+  display: flex;
+  width: 360px; /* Максимальная ширина квадрата */
+  height: 125px; /* Максимальная высота квадрата */
+  margin-left: -5px;
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
+.Opsis {
+  display: flex;
+  font-family: "Murecho", sans-serif;
+  color: white;
+  margin-left: 4%;
+  margin-top: 7%;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: lighter;
+}
+
+.Inbox2:hover {
+  transform: scale(1.05); /* Увеличиваем кнопку при наведении */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+}
+
+.buttonAu {
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание */
+  justify-content: center; /* Горизонтальное выравнивание */
+  text-align: center; /* На всякий случай */
+  background-color: #EEAB81;
+  border-radius: 365px;
+  width: 310px;
+  height: 60px;
+  font-family: "Murecho", sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  border-style: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buttonAu:hover {
+  background-color: #9b7157;
+  transform: scale(1.05); /* Увеличиваем кнопку при наведении */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+}
+
+.buttonAu:active {
+  background-color: #815e47;
+  transform: scale(0.95); /* Уменьшаем кнопку при нажатии */
+}
+
+/* Анимация для кнопок в header */
+.list li button {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.list li button:hover {
+  color: #5900ff; /* Меняем цвет текста при наведении */
+  transform: translateY(-2px); /* Слегка поднимаем кнопку */
+}
+
+.list li button:active {
+  transform: translateY(0); /* Возвращаем кнопку в исходное положение */
+}
+
+
+.rightSection {
+  width: 60%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  border-radius: 60px;
+}
+
+.rightSection img {
+  object-fit: cover;
+  display: flex;
+  max-width: 40%;
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Добавляем плавный переход */
+}
+
+.rightSection img:hover {
+  transform: scale(1.1) translateY(-10px); /* Увеличение и подъем */
+  opacity: 1;
+}
+
+.rightSection img {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateX(0);
+  }
+}
+
+.quote {
+  font-family: "Murecho", sans-serif;
+  color: white;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 200px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+
+.backgroundeffects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
