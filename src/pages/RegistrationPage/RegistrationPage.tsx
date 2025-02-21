@@ -1,8 +1,8 @@
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import styles from './RegistrationPage.module.css';
-import { useAuthStore } from '../../store/useAuthStore';
+import styles from "./RegistrationPage.module.css";
+import { useAuthStore } from "../../store/useAuthStore";
 
 export function RegistrationPage() {
   const navigate = useNavigate();
@@ -11,7 +11,8 @@ export function RegistrationPage() {
   const [error1, setError1] = useState(false);
 
   const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
-  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$/;
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$/;
   const loginRegex = /^[a-z0-9](-?[a-z0-9]){2,20}$/i;
 
   const [login, setLogin] = useState("");
@@ -20,7 +21,12 @@ export function RegistrationPage() {
   const [pass2, setPasswordreg2] = useState("");
 
   const clicktest = async () => {
-    if (loginRegex.test(login) && emailRegex.test(email) && passwordRegex.test(pass1) && pass1 === pass2) {
+    if (
+      loginRegex.test(login) &&
+      emailRegex.test(email) &&
+      passwordRegex.test(pass1) &&
+      pass1 === pass2
+    ) {
       await signUp(email, pass1, login, navigate);
     } else {
       if (pass1 !== pass2) {
@@ -39,87 +45,93 @@ export function RegistrationPage() {
       <div className={styles.stars1}></div>
       <div className={styles.stars2}></div>
       <div className={styles.shootingstars}></div>
+      {error && (
+        <div className={styles.errormessage}>Неправильный логин или email</div>
+      )}
       <div className={styles.indiv}>
         <div className={styles.Headbox}>
           <header className={styles.HEAD}>РЕГИСТРАЦИЯ</header>
+
           <h5 className={styles.Logintext1}>Логин</h5>
-          
-            <input
-              type="text"
-              value={login}
-              onChange={(e) => setLogin(e.target.value)}
-              placeholder="Введите логин"
-              style={{
-                width: '75%',
-                padding: '10px',
-                borderRadius: '20px',
-                fontSize: '16px',
-                margin: '0 auto',
-                display: 'block',
-              }}
-            />
-          
+
+          <input
+            type="text"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+            placeholder="Введите логин"
+            style={{
+              width: "75%",
+              padding: "10px",
+              borderRadius: "20px",
+              fontSize: "16px",
+              margin: "0 auto",
+              display: "block",
+            }}
+          />
+
           <h5 className={styles.Etext}>E-mail</h5>
-          
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Введите e-mail"
-              style={{
-                width: '75%',
-                padding: '10px',
-                borderRadius: '20px',
-                fontSize: '16px',
-                margin: '0 auto',
-                display: 'block',
-              }}
-            />
-          
+
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Введите e-mail"
+            style={{
+              width: "75%",
+              padding: "10px",
+              borderRadius: "20px",
+              fontSize: "16px",
+              margin: "0 auto",
+              display: "block",
+            }}
+          />
+
           <h5 className={styles.Passwordtext1}>Пароль</h5>
-          
-            <input
-              type="password"
-              value={pass1}
-              onChange={(e) => setPasswordreg1(e.target.value)}
-              placeholder="Введите пароль"
-              style={{
-                width: '75%',
-                padding: '10px',
-                borderRadius: '20px',
-                fontSize: '16px',
-                margin: '0 auto',
-                display: 'block',
-              }}
-            />
-          
+
+          <input
+            type="password"
+            value={pass1}
+            onChange={(e) => setPasswordreg1(e.target.value)}
+            placeholder="Введите пароль"
+            style={{
+              width: "75%",
+              padding: "10px",
+              borderRadius: "20px",
+              fontSize: "16px",
+              margin: "0 auto",
+              display: "block",
+            }}
+          />
+
           <h5 className={styles.Passwordtext11}>Повтор пароля</h5>
-          
-            <input
-              type="password"
-              value={pass2}
-              onChange={(e) => setPasswordreg2(e.target.value)}
-              placeholder="Повторите пароль"
-              style={{
-                width: '75%',
-                padding: '10px',
-                borderRadius: '20px',
-                fontSize: '16px',
-                margin: '0 auto',
-                display: 'block',
-              }}
-            />
-          
+
+          <input
+            type="password"
+            value={pass2}
+            onChange={(e) => setPasswordreg2(e.target.value)}
+            placeholder="Повторите пароль"
+            style={{
+              width: "75%",
+              padding: "10px",
+              borderRadius: "20px",
+              fontSize: "16px",
+              margin: "0 auto",
+              display: "block",
+            }}
+          />
+
           <div className={styles.Button}>
             <button className={styles.buttonrev} onClick={clicktest}>
               Зарегистрироваться
             </button>
           </div>
-          {error && <div className={styles.errormessage}>Неправильный логин или email</div>}
-          {error1 && <div className={styles.errormessage}>Пароли не совпадают</div>}
+
+          {error1 && (
+            <div className={styles.errormessage}>Пароли не совпадают</div>
+          )}
           <Button
             onClick={() => navigate("/auth")}
-            color='secondary'
+            color="secondary"
             sx={{
               color: "white",
               fontSize: 11,

@@ -7,12 +7,15 @@ body {
   overflow: hidden;
 }
 
+.separator {
+  user-select: none;
+}
+
 .square {
   background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
   width: 100vw;
   height: 100vh;
   animation: fadeIn 1.5s ease forwards;
-  
 }
 
 .back {
@@ -23,7 +26,6 @@ body {
   height: 220%;
   transform: rotate(-45deg);
 }
-
 
 :root {
   --primary-color: #ffffff; /* Белый цвет */
@@ -46,7 +48,8 @@ body {
   border-radius: 50%;
   filter: drop-shadow(0 0 6px currentColor);
   transform: translate3d(104em, 0, 0);
-  animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+  animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
+    tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
 }
 @media screen and (max-width: 750px) {
   .star {
@@ -353,7 +356,8 @@ body {
   --fall-duration: 9.521s;
   --fall-delay: 1.581s;
 }
-.star::before, .star::after {
+.star::before,
+.star::after {
   position: absolute;
   content: "";
   top: 0;
@@ -377,11 +381,13 @@ body {
   }
 }
 @keyframes tail-fade {
-  0%, 50% {
+  0%,
+  50% {
     width: var(--star-tail-length);
     opacity: 1;
   }
-  70%, 80% {
+  70%,
+  80% {
     width: 0;
     opacity: 0.4;
   }
@@ -414,7 +420,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
 }
 
-
 .All {
   display: flex;
   flex-direction: row;
@@ -443,8 +448,6 @@ body {
   margin-top: 10vh;
 }
 
-
-
 .orb {
   display: flex;
   font-size: 55px;
@@ -469,10 +472,10 @@ body {
   letter-spacing: 1px;
 }
 
-hr { 
+hr {
   display: flex;
-  width: 2px; 
-  height: 110px; 
+  width: 2px;
+  height: 110px;
   background-color: white;
   margin-left: 0%;
 }
@@ -507,7 +510,7 @@ hr {
   align-items: center; /* Вертикальное выравнивание */
   justify-content: center; /* Горизонтальное выравнивание */
   text-align: center; /* На всякий случай */
-  background-color: #EEAB81;
+  background-color: #eeab81;
   border-radius: 365px;
   width: 310px;
   height: 60px;
@@ -542,7 +545,6 @@ hr {
 .list li button:active {
   transform: translateY(0); /* Возвращаем кнопку в исходное положение */
 }
-
 
 .rightSection {
   width: 60%;
@@ -594,7 +596,6 @@ hr {
   animation: fadeIn 2s ease forwards;
 }
 
-
 .backgroundeffects {
   position: absolute;
   top: 0;
@@ -604,4 +605,3 @@ hr {
   overflow: hidden;
   z-index: 1;
 }
-
