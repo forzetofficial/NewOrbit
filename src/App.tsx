@@ -6,6 +6,8 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { PreparationPage } from "./pages/PreparationPage/PreparationPage";
 import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
 import { TestPage } from "../src/pages/mailconf/ConfPage";
+import { Homemain } from "../src/pages/Homemain/HomemainPage";
+import { RefreshPage } from "../src/pages/RefPassword/RefpassPage";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       <Route path="/directions" element={<DirectionsPage />} />
       <Route path="/education" element={<EducationPage />} />
       <Route path="/preparation" element={<PreparationPage />} />
-      <Route path="/activate" element={<TestPage />} />
+      <Route path="/activate/:url" element={<TestPage />} />
+      <Route path="/homemain" element={<Homemain />} />
+      <Route path="/change_password/:url" element={<RefreshPage />} /> 
     </Routes>
   );
 }
