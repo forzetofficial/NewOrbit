@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import axios, { AxiosError } from "axios";
 import { UserId } from "../types";
+import { jwtDecode } from 'jwt-decode';
 
 interface UseAuthStore {
   userId: UserId;
@@ -21,7 +22,7 @@ interface UseAuthStore {
   forgotPassword: (email: string) => Promise<true | undefined>;
 }
 
-export const useAuthStore = create<UseAuthStore>((set) => ({
+export const useAuthStore = create<UseAuthStore>((set, get) => ({
   userId: null,
   error: false,
   setUserId: (userId) => set({ userId }),
@@ -78,7 +79,11 @@ export const useAuthStore = create<UseAuthStore>((set) => ({
         );
 
         if (response.status === 200) {
-          set({ userId: response.data.userId }); // Предположим, что сервер возвращает userId
+          const token = response.data.access_token;
+          const user = jwtDecode(token) as any;
+          get().setUserId(user.uid);
+          localStorage.setItem("userId", user.uid);
+          localStorage.setItem("accessToken", token);
           navigate("/homemain");
         }
       } catch (error) {
