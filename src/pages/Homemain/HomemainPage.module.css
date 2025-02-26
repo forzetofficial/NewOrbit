@@ -8,6 +8,7 @@
     -o-transform: translate(-50, -50%);
     transform: translate(-50, -50%);
     display: flex;
+    flex-direction: column;
   }
   
 .stars {
@@ -124,120 +125,78 @@
     }
   }
 
-.mainheader {
-    z-index: 11;
-    background-color: rgba(89, 13, 130, 0.2);
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    width: 100vw;
-    height: 8vh;
+.mainheader { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    left: 0; 
+    z-index: 11; 
+    background-color: rgba(89, 13, 130, 0.2); 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 100%; 
+    height: 8vh; 
 }
 
-
-.lefthead {
-    text-align: center;
+.lefthead { 
     float: left;
     display: flex;
     margin-left: 40px;
     color:#FFF;
     font-family: "Dela Gothic One", sans-serif;
+}
 
+.centerhead {
+    display: flex;
+    margin-left: 40px;
+    color:#FFF;
+    font-family: "Dela Gothic One", sans-serif;
+    text-align: center;
+    font-weight: lighter;
+    margin-top: 2.3vh;
 }
 
 .righthead {
-    align-items: center;
-    float: right;
-    display: flex;
-    font-size:larger;
-    color:#FFF;
-    margin-right: 40px;
-}
-
-.profileCircle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 30px;
-    margin-left: 0px;
-}
-
-.profileCircle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profileName {
-    font-size: 16px;
-    color: #FFF;
-}
-
-
-.input {
+  float: right;
   display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 8%;
-  background-color: #0D1117;
-  justify-content: center;
-  z-index: 100;
-  position: relative;
-  transform: translateX(100%); /* Начальное положение за пределами экрана */
-  animation: slideIn 0.5s ease-in-out forwards; /* Анимация выдвижения */
+  margin-right: 30px;
+  width: 3.5vw;
+  height: 3.5vw;
+  background-color: black ;
+  margin-top: 0.5vh;
+  border-radius: 90px;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(100%); /* Начальное положение */
-  }
-  to {
-    transform: translateX(0); /* Конечное положение */
-  }
-}
-
-.value {
-  background-color: transparent;
-  border: none;
-  padding: 10px;
-  color: white;
-  display: flex;
-  position: relative;
-  gap: 5px;
-  cursor: pointer;
-  border-radius: 4px;
-  z-index: 100;
-}
-
-.value:not(:active):hover,
-.value:focus {
-  background-color: #21262C;
-}
-
-.value:focus,
-.value:active {
-  background-color: #1A1F24;
-  outline: none;
-}
-
-.value::before {
-  content: "";
+.slideContainer {
   position: absolute;
-  top: 5px;
-  left: -10px;
-  width: 5px;
-  height: 80%;
-  background-color: #2F81F7;
-  border-radius: 5px;
-  opacity: 0;
+  right: -300px;
+  width: 150px;
+  height: 8vh;
+  top: 8vh;
+  background-color: #f0f0f0;
+  transition: right 0.3s ease-in-out;
+  background-color: black ;
 }
 
-.value:focus::before,
-.value:active::before {
-  opacity: 1;
+.slideContainer.open {
+  right: 0;
 }
 
-.value svg {
-  width: 15px
+.buttonInfo {
+  width: 100%;
+  height: 50%;
+  font-size: 1em;
+  font-family:'Times New Roman', Times, serif;
+  color: #FFF ;
+  background-color: black ;
+}
+
+.buttonExit {
+  width: 100%;
+  height: 50%;
+  font-size: 1em;
+  font-family:'Times New Roman', Times, serif;
+  color: #FFF ;
+  background-color: black ;
 }

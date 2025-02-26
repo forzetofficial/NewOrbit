@@ -8,6 +8,7 @@ import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
 import { TestPage } from "../src/pages/mailconf/ConfPage";
 import { Homemain } from "../src/pages/Homemain/HomemainPage";
 import { RefreshPage } from "../src/pages/RefPassword/RefpassPage";
+import { UserInfoPage } from "../src/pages/UserInfoPage/UserInfoPage";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/activate/:url" element={<TestPage />} />
       <Route path="/homemain" element={<Homemain />} />
       <Route path="/change_password/:url" element={<RefreshPage />} />
+      <Route path="/uinfo" element={<UserInfoPage />} />
     </Routes>
   );
 }
