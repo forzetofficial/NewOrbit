@@ -13,18 +13,20 @@ import "./App.css";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/auth" element={<AuthPage />} />
-      <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/directions" element={<DirectionsPage />} />
-      <Route path="/education" element={<EducationPage />} />
-      <Route path="/preparation" element={<PreparationPage />} />
-      <Route path="/activate/:url" element={<TestPage />} />
-      <Route path="/homemain" element={<Homemain />} />
-      <Route path="/change_password/:url" element={<RefreshPage />} />
-      <Route path="/uinfo" element={<UserInfoPage />} />
-    </Routes>
+    <div className="wrapper">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+        <Route path="/directions" element={<DirectionsPage />} />
+        <Route path="/education" element={<EducationPage />} />
+        <Route path="/preparation" element={<PreparationPage />} />
+        <Route path="/activate/:url" element={<TestPage />} />
+        <Route path="/homemain" element={<Homemain />} />
+        <Route path="/change_password/:url" element={<RefreshPage />} />
+        <Route path="/uinfo" element={<UserInfoPage />} />
+      </Routes>
+    </div>
   );
 }
 

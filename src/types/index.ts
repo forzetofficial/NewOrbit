@@ -1,4 +1,10 @@
 export type UserId = number | null;
+
 export interface User {
-    firstname: string,
+  firstname: string;
+  gender: string;
+  icon_url: string;
+  lastname: string;
+  middlename: string;
+  phone: string;
 }

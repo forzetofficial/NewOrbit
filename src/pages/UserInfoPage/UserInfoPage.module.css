@@ -1,0 +1,21 @@
+.headermain {
+  width: 100vw;
+  height: 8vh;
+  background-color: #efb6bb;
+  display: flex;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #773575;
+}
+
+.bodys {
+  background-color: black;
+  width: 100px;
+  height: 100px;
+}
