@@ -3,19 +3,145 @@
   height: 8vh;
   background-color: #efb6bb;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head_main_name {
+  margin-left: 20px;
 }
 
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: #773575;
 }
 
 .bodys {
+  background-color: #B4A4B9  ;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  display: flex;
+  height: 100%;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foto {
+  display: flex;
+  width: 350px;
+  height: 350px;
+  margin: 10% 16.4% 5% 16.4%;
   background-color: black;
-  width: 100px;
-  height: 100px;
+  border-radius: 180px;
+}
+
+.but_upload_foto {
+  width: 50%;
+  height: 6%;
+}
+
+.setinfo {
+  width: 50%;
+  height: 6%;
+  margin-top: 5%;
+}
+
+hr {
+  display: flex;
+  width: 90%;
+  height: 1px;
+  background-color: black;
+  margin: -10px 0px 0px 0px;
+  border: 0px;
+}
+
+.right {
+  display: flex;
+  height: 100%;
+  width: 60%;
+}
+
+.box1 {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  flex-direction: column;
+}
+
+.headtext {
+  display: flex;
+  width: 90%;
+  height: 30%;
+  align-items: end;
+}
+
+.input {
+  display: flex;
+  width: 90%;
+  height: 40%;
+  border: 0px;
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.firstname {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  margin-top: 20%;
+  flex-direction: column;
+}
+
+.middlename {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.lastname {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.box2 {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  flex-direction: column;
+}
+
+.gender {
+  margin-top: 20%;
+  display: flex;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.phone {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.email {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
 }
