@@ -15,6 +15,15 @@ export function UserInfoPage() {
     <>
       <header className={styles.headermain}>
         <h2 className={styles.head_main_name}>Личный кабинет</h2>
+        <div className={styles.rigth_head}>
+          <div className={styles.foto_main}></div>
+          <div className={styles.info_name}>
+            <h4 className={styles.h_name}>Белолипецкий Леонид</h4>
+            <h5 className={styles.h_num}>+7 991 209-17-65</h5>
+          </div>
+          <hr className={styles.hr_main}></hr>
+          <button className={styles.icon_exit}></button>
+        </div>
       </header>
       <div className={styles.main}>
         <div className={styles.bodys}>
@@ -27,40 +36,34 @@ export function UserInfoPage() {
             <div className={styles.box1}>
               <div className={styles.firstname}>
                 <header className={styles.headtext}>Имя</header>
-                <input className={styles.input}>
-                </input>
+                <input className={styles.input}></input>
                 <hr></hr>
               </div>
               <div className={styles.middlename}>
                 <header className={styles.headtext}>Фамилия</header>
-                <input className={styles.input}>
-                </input>
+                <input className={styles.input}></input>
                 <hr></hr>
               </div>
               <div className={styles.lastname}>
                 <header className={styles.headtext}>Отчество</header>
-                <input className={styles.input}>
-                </input>
+                <input className={styles.input}></input>
                 <hr></hr>
               </div>
             </div>
             <div className={styles.box2}>
               <div className={styles.gender}>
                 <header className={styles.headtext}>Пол</header>
-                <input className={styles.input}>
-                </input>
+                <input className={styles.input}></input>
                 <hr></hr>
               </div>
               <div className={styles.phone}>
                 <header className={styles.headtext}>Телефон</header>
-                <input className={styles.input}>
-                </input>
+                <input className={styles.input}></input>
                 <hr></hr>
               </div>
               <div className={styles.email}>
                 <header className={styles.headtext}>Почта</header>
-                <input className={styles.input}>
-                </input>
+                <input className={styles.input}></input>
                 <hr></hr>
               </div>
             </div>

@@ -11,6 +11,55 @@
   margin-left: 20px;
 }
 
+.rigth_head {
+  display: flex;
+  height: 100%;
+  width: 25%;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info_name {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  align-items: start;
+}
+
+.h_name {
+  margin: 6% 0px 0px 0px;
+}
+
+.h_num {
+  margin: 2% 0px;
+  font-style: normal;
+  font-weight: lighter;
+}
+
+.hr_main {
+  display: flex;
+  width: 2px;
+  height: 80%;
+  background-color: black;
+  margin: 5% 0px;
+}
+
+.icon_exit {
+  display: flex;
+  height: 60px;
+  width: 60px;
+}
+
+.foto_main {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 180px;
+  background-color: white;
+  margin-right: 5%;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -21,7 +70,7 @@
 }
 
 .bodys {
-  background-color: #B4A4B9  ;
+  background-color: #b4a4b9;
   width: 80%;
   height: 80%;
   display: flex;
@@ -41,26 +90,30 @@
   width: 350px;
   height: 350px;
   margin: 10% 16.4% 5% 16.4%;
-  background-color: black;
+  background-color: white;
   border-radius: 180px;
 }
 
 .but_upload_foto {
   width: 50%;
   height: 6%;
+  background-color: #fbe0c2;
+  border-radius: 12px;
 }
 
 .setinfo {
   width: 50%;
   height: 6%;
   margin-top: 5%;
+  background-color: #fbe0c2;
+  border-radius: 12px;
 }
 
 hr {
   display: flex;
   width: 90%;
   height: 1px;
-  background-color: black;
+  background-color: white;
   margin: -10px 0px 0px 0px;
   border: 0px;
 }
