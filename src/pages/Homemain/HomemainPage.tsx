@@ -20,11 +20,7 @@ export function Homemain() {
 
   useEffect(() => {
     getUser(userId);
-    console.log(user);
   }, [userId]);
-
-  console.log(user.firstname);
-  console.log(user.lastname);
 
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +35,7 @@ export function Homemain() {
 
   const clickExit = () => {
     navigate("/");
+    localStorage.clear();
   };
 
   return (

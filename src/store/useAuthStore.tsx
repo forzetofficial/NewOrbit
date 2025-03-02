@@ -7,6 +7,10 @@ interface UseAuthStore {
   userId: UserId;
   setUserId: (userId: UserId) => void;
   error: boolean;
+  email: string;
+  accessToken: string;
+  setEmail: (email: string) => void;
+  setaccessToken: (accessToken: string) => void;
   setError: (error: boolean) => void;
   signUp: (
     email: string,
@@ -20,12 +24,19 @@ interface UseAuthStore {
     navigate: (path: string) => void
   ) => Promise<void>;
   forgotPassword: (email: string) => Promise<true | undefined>;
+
+  getEmail: () => string;
+  getaccessToken: () => string;
 }
 
 export const useAuthStore = create<UseAuthStore>((set, get) => ({
   userId: null,
   error: false,
+  email: "",
+  accessToken: "",
   setUserId: (userId) => set({ userId }),
+  setEmail: (email) => set({ email }),
+  setaccessToken: (accessToken) => set ({accessToken}),
   setError: (error) => set({ error }),
 
   signUp: async (email, password, username, navigate) => {
@@ -82,8 +93,11 @@ export const useAuthStore = create<UseAuthStore>((set, get) => ({
           const token = response.data.access_token;
           const user = jwtDecode(token) as any;
           get().setUserId(user.uid);
+          get().setEmail(email);
+          get().setaccessToken(token);
           localStorage.setItem("userId", user.uid);
           localStorage.setItem("accessToken", token);
+          localStorage.setItem("email", email);
           navigate("/homemain");
         }
       } catch (error) {
@@ -121,4 +135,6 @@ export const useAuthStore = create<UseAuthStore>((set, get) => ({
       setTimeout(() => set({ error: false }), 3000);
     }
   },
+  getEmail: () => get().email,
+  getaccessToken: () => get().accessToken,
 }));
