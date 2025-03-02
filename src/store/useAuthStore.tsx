@@ -5,28 +5,35 @@ import { jwtDecode } from 'jwt-decode';
 
 interface UseAuthStore {
   userId: UserId;
-  setUserId: (userId: UserId) => void;
   error: boolean;
   email: string;
   accessToken: string;
+  refreshToken: string;
+
+  setUserId: (userId: UserId) => void;
   setEmail: (email: string) => void;
   setaccessToken: (accessToken: string) => void;
+  setrefreshToken: (refreshToken: string) => void;
   setError: (error: boolean) => void;
+
   signUp: (
     email: string,
     password: string,
     username: string,
     navigate: (path: string) => void
   ) => Promise<void>;
+
   signIn: (
     email: string,
     password: string,
     navigate: (path: string) => void
   ) => Promise<void>;
+
   forgotPassword: (email: string) => Promise<true | undefined>;
 
   getEmail: () => string;
   getaccessToken: () => string;
+  getrefreshToken: () => string;
 }
 
 export const useAuthStore = create<UseAuthStore>((set, get) => ({
@@ -34,9 +41,12 @@ export const useAuthStore = create<UseAuthStore>((set, get) => ({
   error: false,
   email: "",
   accessToken: "",
+  refreshToken: "",
+
   setUserId: (userId) => set({ userId }),
   setEmail: (email) => set({ email }),
   setaccessToken: (accessToken) => set ({accessToken}),
+  setrefreshToken: (refreshToken) => set ({refreshToken}),
   setError: (error) => set({ error }),
 
   signUp: async (email, password, username, navigate) => {
@@ -91,13 +101,19 @@ export const useAuthStore = create<UseAuthStore>((set, get) => ({
 
         if (response.status === 200) {
           const token = response.data.access_token;
+          const reftoken = response.data.refresh_token;
           const user = jwtDecode(token) as any;
+
           get().setUserId(user.uid);
           get().setEmail(email);
           get().setaccessToken(token);
+          get().setrefreshToken(reftoken);
+
           localStorage.setItem("userId", user.uid);
           localStorage.setItem("accessToken", token);
           localStorage.setItem("email", email);
+          localStorage.setItem("refreshToken", reftoken);
+
           navigate("/homemain");
         }
       } catch (error) {
@@ -135,6 +151,8 @@ export const useAuthStore = create<UseAuthStore>((set, get) => ({
       setTimeout(() => set({ error: false }), 3000);
     }
   },
+
   getEmail: () => get().email,
   getaccessToken: () => get().accessToken,
+  getrefreshToken: () => get().refreshToken,
 }));

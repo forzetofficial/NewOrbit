@@ -1,43 +1,39 @@
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import styles from "./RegistrationPage.module.css";
-import { useAuthStore } from "../../store/useAuthStore";
+"use client"
+
+import { Button } from "@mui/material"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import styles from "./RegistrationPage.module.css"
+import { useAuthStore } from "../../store/useAuthStore"
 
 export function RegistrationPage() {
-  const navigate = useNavigate();
-  const { signUp, error, setError } = useAuthStore();
+  const navigate = useNavigate()
+  const { signUp, error, setError } = useAuthStore()
 
-  const [error1, setError1] = useState(false);
+  const [error1, setError1] = useState(false)
 
-  const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
-  const passwordRegex =
-    /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$/;
-  const loginRegex = /^[a-z0-9](-?[a-z0-9]){2,20}$/i;
+  const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$/
+  const loginRegex = /^[a-z0-9](-?[a-z0-9]){2,20}$/i
 
-  const [login, setLogin] = useState("");
-  const [email, setEmail] = useState("");
-  const [pass1, setPasswordreg1] = useState("");
-  const [pass2, setPasswordreg2] = useState("");
+  const [login, setLogin] = useState("")
+  const [email, setEmail] = useState("")
+  const [pass1, setPasswordreg1] = useState("")
+  const [pass2, setPasswordreg2] = useState("")
 
   const clicktest = async () => {
-    if (
-      loginRegex.test(login) &&
-      emailRegex.test(email) &&
-      passwordRegex.test(pass1) &&
-      pass1 === pass2
-    ) {
-      await signUp(email, pass1, login, navigate);
+    if (loginRegex.test(login) && emailRegex.test(email) && passwordRegex.test(pass1) && pass1 === pass2) {
+      await signUp(email, pass1, login, navigate)
     } else {
       if (pass1 !== pass2) {
-        setError1(true);
-        setTimeout(() => setError1(false), 3000);
+        setError1(true)
+        setTimeout(() => setError1(false), 3000)
       } else if (!loginRegex.test(login) || !emailRegex.test(email)) {
-        setError(true);
-        setTimeout(() => setError(false), 3000);
+        setError(true)
+        setTimeout(() => setError(false), 3000)
       }
     }
-  };
+  }
 
   return (
     <div className={styles.sky}>
@@ -45,9 +41,7 @@ export function RegistrationPage() {
       <div className={styles.stars1}></div>
       <div className={styles.stars2}></div>
       <div className={styles.shootingstars}></div>
-      {error && (
-        <div className={styles.errormessage}>Неправильный логин или email</div>
-      )}
+      {error && <div className={styles.errormessage}>Неправильный логин или email</div>}
       <div className={styles.indiv}>
         <div className={styles.Headbox}>
           <header className={styles.HEAD}>РЕГИСТРАЦИЯ</header>
@@ -59,31 +53,17 @@ export function RegistrationPage() {
             value={login}
             onChange={(e) => setLogin(e.target.value)}
             placeholder="Введите логин"
-            style={{
-              width: "75%",
-              padding: "10px",
-              borderRadius: "20px",
-              fontSize: "16px",
-              margin: "0 auto",
-              display: "block",
-            }}
+            className={styles.inputField}
           />
 
           <h5 className={styles.Etext}>E-mail</h5>
 
           <input
-            type="email"
+            type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Введите e-mail"
-            style={{
-              width: "75%",
-              padding: "10px",
-              borderRadius: "20px",
-              fontSize: "16px",
-              margin: "0 auto",
-              display: "block",
-            }}
+            className={styles.inputField}
           />
 
           <h5 className={styles.Passwordtext1}>Пароль</h5>
@@ -93,14 +73,7 @@ export function RegistrationPage() {
             value={pass1}
             onChange={(e) => setPasswordreg1(e.target.value)}
             placeholder="Введите пароль"
-            style={{
-              width: "75%",
-              padding: "10px",
-              borderRadius: "20px",
-              fontSize: "16px",
-              margin: "0 auto",
-              display: "block",
-            }}
+            className={styles.inputField}
           />
 
           <h5 className={styles.Passwordtext11}>Повтор пароля</h5>
@@ -110,14 +83,7 @@ export function RegistrationPage() {
             value={pass2}
             onChange={(e) => setPasswordreg2(e.target.value)}
             placeholder="Повторите пароль"
-            style={{
-              width: "75%",
-              padding: "10px",
-              borderRadius: "20px",
-              fontSize: "16px",
-              margin: "0 auto",
-              display: "block",
-            }}
+            className={styles.inputField}
           />
 
           <div className={styles.Button}>
@@ -126,17 +92,15 @@ export function RegistrationPage() {
             </button>
           </div>
 
-          {error1 && (
-            <div className={styles.errormessage}>Пароли не совпадают</div>
-          )}
+          {error1 && <div className={styles.errormessage}>Пароли не совпадают</div>}
           <Button
             onClick={() => navigate("/auth")}
             color="secondary"
             sx={{
               color: "white",
-              fontSize: 11,
+              fontSize: { xs: "9px", sm: "11px" },
               top: 40,
-              left: 190,
+              left: { xs: 130, sm: 190 },
             }}
           >
             Назад ко входу
@@ -144,5 +108,6 @@ export function RegistrationPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
+

@@ -1,109 +1,90 @@
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import styles from "./AuthPage.module.css";
-import { useAuthStore } from "../../store/useAuthStore";
+"use client"
 
-const modalStyle: React.CSSProperties = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: 1000,
-};
+import type React from "react"
 
-const modalContentStyle: React.CSSProperties = {
-  backgroundColor: "#fff",
-  padding: "20px",
-  borderRadius: "8px",
-  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-  width: "300px",
-  textAlign: "center",
-};
+import { Button } from "@mui/material"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import styles from "./AuthPage.module.css"
+import { useAuthStore } from "../../store/useAuthStore"
 
-const EmailModal = ({
-  isOpen,
-  onClose,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-}) => {
-  const [email, setEmail] = useState("");
-  const { forgotPassword, error, setError } = useAuthStore();
+interface EmailModalProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+const EmailModal = ({ isOpen, onClose }: EmailModalProps) => {
+  const [email, setEmail] = useState("")
+  const { forgotPassword, error, setError } = useAuthStore()
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const success = await forgotPassword(email);
+    e.preventDefault()
+    const success = await forgotPassword(email)
     if (success) {
-      onClose();
+      onClose()
     }
-  };
+  }
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
-    <div style={modalStyle}>
-      <div style={modalContentStyle}>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
         <h2>Введите ваш Email</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="email"
             value={email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             placeholder="Введите ваш email"
             required
+            className={styles.modalInput}
           />
-          <button type="submit">Отправить</button>
-          <button type="button" onClick={onClose}>
-            Закрыть
-          </button>
-        </form>
-        {error && (
-          <div style={{ color: "red", marginTop: "10px" }}>
-            Неправильный email
+          <div className={styles.modalButtons}>
+            <button type="submit" className={styles.modalSubmitButton}>
+              Отправить
+            </button>
+            <button type="button" onClick={onClose} className={styles.modalCloseButton}>
+              Закрыть
+            </button>
           </div>
-        )}
+        </form>
+        {error && <div className={styles.modalError}>Неправильный email</div>}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export function AuthPage() {
-  const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const { signIn, error } = useAuthStore();
+  const navigate = useNavigate()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const { signIn, error } = useAuthStore()
 
   const click = () => {
-    navigate("/");
-  };
+    navigate("/")
+  }
+
   const clickreg = () => {
-    navigate("/registration");
-  };
+    navigate("/registration")
+  }
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+    setIsModalOpen(!isModalOpen)
+  }
 
   const handleChangep = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
 
   const handleChangee = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+    setEmail(event.target.value)
+  }
 
   const handleSignIn = async () => {
-    await signIn(email, password, navigate);
-  };
+    await signIn(email, password, navigate)
+  }
 
   return (
     <div className={styles.sky}>
@@ -116,18 +97,11 @@ export function AuthPage() {
           <header className={styles.HEAD}>ВХОД В ПРОФИЛЬ</header>
           <h5 className={styles.Logintext}>Почта</h5>
           <input
-            type="email"
+            type="text"
             value={email}
             onChange={handleChangee}
             placeholder="Введите e-mail"
-            style={{
-              width: "75%",
-              padding: "10px",
-              borderRadius: "20px",
-              fontSize: "16px",
-              margin: "0 auto",
-              display: "block",
-            }}
+            className={styles.inputField}
           />
           <h5 className={styles.Passwordtext}>Пароль</h5>
           <input
@@ -135,22 +109,15 @@ export function AuthPage() {
             value={password}
             onChange={handleChangep}
             placeholder="Введите пароль"
-            style={{
-              width: "75%",
-              padding: "10px",
-              borderRadius: "20px",
-              fontSize: "16px",
-              margin: "0 auto",
-              display: "block",
-            }}
+            className={styles.inputField}
           />
           <Button
             onClick={toggleModal}
             sx={{
               color: "white",
-              fontSize: 10,
+              fontSize: { xs: "9px", sm: "10px" },
               top: 15,
-              left: 57,
+              left: { xs: 20, sm: 57 },
               fontFamily: "Montserrat",
               opacity: 1,
             }}
@@ -162,11 +129,7 @@ export function AuthPage() {
             <button className={styles.buttonAuth} onClick={handleSignIn}>
               Войти
             </button>
-            {error && (
-              <div className={styles.errormessage}>
-                Неправильный логин или пароль
-              </div>
-            )}
+            {error && <div className={styles.errormessage}>Неправильный логин или пароль</div>}
           </div>
           <div className={styles.Button}>
             <button className={styles.buttonReg} onClick={clickreg}>
@@ -178,9 +141,9 @@ export function AuthPage() {
             color="inherit"
             sx={{
               color: "white",
-              fontSize: 10,
+              fontSize: { xs: "9px", sm: "10px" },
               top: 50,
-              left: 155,
+              left: { xs: 100, sm: 155 },
               opacity: 1,
             }}
           >
@@ -189,5 +152,6 @@ export function AuthPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
+

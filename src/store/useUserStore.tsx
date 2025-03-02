@@ -74,9 +74,7 @@ export const useUserStore = create<UseUserStore>((set, get) => ({
   updateInfo: async (id, firstname, gender, icon_url, lastname, middlename, phone) => {
     try {
       icon_url = '../components/IconUI/logout_659989.png';
-      axios.defaults.headers.common["Authorization"] = `${localStorage.getItem(
-        "accessToken"
-      )}`;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem("accessToken")}`;
       const response = await axios.put(
         "https://cookhub.space/api/v1/user/" + id,
         {
@@ -94,6 +92,17 @@ export const useUserStore = create<UseUserStore>((set, get) => ({
       }
     } catch (error) {
       console.error("Ошибка при обновлении юзера:", error);
+      
+      if (error.status === 401) {
+        const refreshtoken = localStorage.getItem("accessToken");
+        const response = await axios.put(
+          "https://cookhub.space/api/v1/refresh",
+          {
+            refreshtoken,
+          }
+        );
+      }
+
       set({ error: true });
       setTimeout(() => set({ error: false }), 3000);
     }
