@@ -9,10 +9,6 @@ export function HomePage() {
     navigate("/auth")
   }
 
-  const navigateTo = (path) => {
-    navigate(path)
-  }
-
   // Generate stars for background animation
   const stars = Array(50).fill(null)
 
@@ -28,15 +24,15 @@ export function HomePage() {
       {/* Navigation header */}
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <Button onClick={() => navigateTo("/directions")} color="inherit" className={styles.navButton}>
+          <Button onClick={() => navigate("/directions")} color="inherit" className={styles.navButton}>
             Направления
           </Button>
           <span className={styles.separator}>|</span>
-          <Button onClick={() => navigateTo("/education")} color="inherit" className={styles.navButton}>
+          <Button onClick={() => navigate("/education")} color="inherit" className={styles.navButton}>
             Обучение
           </Button>
           <span className={styles.separator}>|</span>
-          <Button onClick={() => navigateTo("/preparation")} color="inherit" className={styles.navButton}>
+          <Button onClick={() => navigate("/preparation")} color="inherit" className={styles.navButton}>
             Подготовка к Огэ\Егэ
           </Button>
         </nav>

@@ -234,7 +234,7 @@ body {
 
 .verticalLine {
   width: 2px;
-  min-height: 110px;
+  min-height: 80px;
   background-color: white;
   margin-right: 20px;
 }
@@ -363,8 +363,8 @@ body {
   }
 
   .verticalLine {
-    width: 100px;
-    height: 2px;
+    width: 1px;
+    height: 1px;
     margin-right: 0;
     margin-bottom: 15px;
   }
@@ -412,7 +412,17 @@ body {
   }
 }
 
+@media (max-width: 800px){
+  .verticalLine{
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
+  .verticalLine{
+    display: none;
+  }
+
   .nav {
     flex-direction: column;
     gap: 5px;
@@ -479,37 +489,5 @@ body {
     align-items: center;
     gap: 5px;
   }
-}
-
-:export {
-  square: square;
-  back: back;
-  star: star;
-  Heading: Heading;
-  list: list;
-  separator: separator;
-  All: All;
-  Inbox: Inbox;
-  orb: orb;
-  ysp: ysp;
-  n: n;
-  Inbox2: Inbox2;
-  Opsis: Opsis;
-  buttonAu: buttonAu;
-  rightSection: rightSection;
-  fotobox: fotobox;
-  quote: quote;
-  mobileList: mobileList;
-  mobileAll: mobileAll;
-  mobileInbox: mobileInbox;
-  mobileOrb: mobileOrb;
-  mobileYsp: mobileYsp;
-  mobileN: mobileN;
-  mobileInbox2: mobileInbox2;
-  mobileOpsis: mobileOpsis;
-  mobileButtonAu: mobileButtonAu;
-  mobileRightSection: mobileRightSection;
-  mobileFotobox: mobileFotobox;
-  mobileQuote: mobileQuote;
 }
 
