@@ -1,0 +1,117 @@
+.container {
+    padding-top: 5rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+  }
+  
+  .courseList {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .courseCard {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .courseCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .courseHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .courseInfo {
+    flex: 1;
+  }
+  
+  .courseTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .courseProgress {
+    margin-top: 1rem;
+    background-color: #334155;
+    border-radius: 9999px;
+    height: 0.5rem;
+  }
+  
+  .progressBar {
+    height: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #3b82f6, #93c5fd);
+  }
+  
+  .lectureList {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .lecture {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(51, 65, 85, 0.5);
+    transition: background-color 0.2s;
+  }
+  
+  .lecture:hover {
+    background-color: rgba(51, 65, 85, 0.75);
+  }
+  
+  .lectureIcon {
+    color: #60a5fa;
+  }
+  
+  .lectureInfo {
+    flex: 1;
+  }
+  
+  .lectureName {
+    font-weight: 500;
+    color: white;
+  }
+  
+  .lectureDuration {
+    font-size: 0.875rem;
+    color: #94a3b8;
+  }
+  
+  .lectureStatus {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .completed {
+    color: #34d399;
+  }
+  
+  .inProgress {
+    color: #fbbf24;
+  }
+  
+  .notStarted {
+    color: #94a3b8;
+  }
